@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const QA = require('./models/Q&A.models');
+const QA = require('./src/models/Q&A.models');
 
 const app = express();
 
@@ -10,6 +10,11 @@ app.get('/', (req, res) => {
 app.get('/qa', async (req, res) => {
     const QAs = await QA.find()
     res.json({message: 'QA endpoint is working', data: QAs});
+});
+
+app.get('/books', async (req, res) => {
+    const Books = await Books.find()
+    res.json({message: 'Books endpoint is working', data: Books});
 });
 
 mongoose
